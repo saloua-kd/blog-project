@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Blogs</h1>
+    <% blogs.forEach(b => { %>
+        <div id="<%= b.id %>">
+            <h3>blog title: <%= b.title_blog %> </h3>
+            <h3>blog description: <%= b.description_blog %> </h3>
+            <h3>blog author: <%= b.author_blog %> </h3>
+            <img width="300px" height="auto" src="/uploads/<%=b.image_blog%>" alt="hh">
+        </div>
+    <% }) %>
+
+
+</body>
+</html>
