@@ -27,6 +27,6 @@ exports.createBlog = (req,res) => {
 exports.getBlogs = async (req,res) => {
     const fetchBlog = await axios.get('http://localhost:3000/blogs')
     const blogs = await fetchBlog.data
-    res.render('allBlogs',{blogs})
+    res.render('allBlogs',{blogs});
     res.end()
 }
