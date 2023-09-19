@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/dashstyle.css">
+    <link rel="stylesheet" href="/css/allblogsstyle.css">
+    <script src="/js/dashscript.js" defer></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <ul>
+            <li class='active'>
+                <a href="#">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/allBlogs">
+                    <span>All Blogs</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <nav>
+            <form action="/logout" method="GET">
+                <button type="submit" id="logout">Logout</button>
+              </form>
+            <span>
+                <!-- email -->
+                <%=email%> 
+            </span>
+            <div class="profile-img">
+                <img src="/uploads/<%= avatar %>" alt="myavatar">
+            </div>
+        </nav>
+
+        <!-- Main heading -->
+        <div class="container">
+            <header>
+                <h1>Welcome back,<%=username%> </h1>
+                <span>Get an overview of your blog</span>
+            </header>
+
+
+
+            <form id="blog-form" action="/createblog" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Blog Title"><br><br>
+                <input type="text" name="description" placeholder="Blog Description"><br><br>
+                <input type="text" name="author" placeholder="Blog Author"><br><br>
+                <input type="file" name="image"><br><br>
+                <button type="submit" id="add-blog-button">Add Blog</button>
+            </form>
+
+            <% if (newBlog) { %>      
+                <div class="blog-card" id="<%= newBlog.id %>">
+                    <img src="/uploads/<%= newBlog.image_blog %>" alt="<%= newBlog.title_blog %>">
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">blog title: <%= newBlog.title_blog %></h3>
+                        <p class="blog-card-description">blog description: <%= newBlog.description_blog %></p>
+                        <p class="blog-card-author">blog author: <%= newBlog.author_blog %></p>
+                        <div class="button">
+                            <a href="" class="edit">edit</a>
+                            <a href="" class="delete" data-id="<%= newBlog.id %>">delete</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+
+    <div class="blog-cards-container">
+        <% blogs.forEach(b => { %>
+        <div class="blog-card" id="<%= b.id %>">
+            <img src="/uploads/<%= b.image_blog %>" alt="<%= b.title_blog %>">
+            <div class="blog-card-content">
+                <h3 class="blog-card-title">blog title: <%= b.title_blog %></h3>
+                <p class="blog-card-description">blog description: <%= b.description_blog %></p>
+                <p class="blog-card-author">blog author: <%= b.author_blog %></p>
+                <div class="button">
+                    <a href="" class="edit">edit</a>
+                    <a href="" class="delete" data-id="<%= b.id %>">delete</a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+
+
+        </div>
+
+</body>
+
+</html>

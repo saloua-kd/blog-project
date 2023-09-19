@@ -1,40 +1,41 @@
 {
   "blogs": [
     {
-      "title_blog": "hi",
-      "description_blog": "hi",
-      "author_blog": "hi",
-      "image_blog": "1694507936861-B3B3.png",
+      "title_blog": "this is a blog",
+      "description_blog": "description",
+      "author_blog": "author",
+      "image_blog": "1695152913609-302-3022079_blankface-meme-computer.png",
       "id": 1
     },
     {
-      "title_blog": "hi",
-      "description_blog": "hih",
-      "author_blog": "hi",
-      "image_blog": "1694507936861-B3B3.png",
+      "title_blog": "another blog",
+      "description_blog": "description",
+      "author_blog": "author",
+      "image_blog": "1695154730877-HKimage.png",
       "id": 2
     },
     {
-      "title_blog": "hi",
-      "description_blog": "hi",
-      "author_blog": "hi",
-      "image_blog": "1694507936861-B3B3.png",
+      "title_blog": "another blog",
+      "description_blog": "description",
+      "author_blog": "author",
+      "image_blog": "1695154759861-linkedin cover.jpg",
       "id": 3
-    },
-    {
-      "title_blog": "tfv",
-      "description_blog": "hgfjhv",
-      "author_blog": "gcvhjv",
-      "image_blog": "1694507936861-B3B3.png",
-      "id": 4
-    },
-    {
-      "title_blog": "hi",
-      "description_blog": "hi",
-      "author_blog": "hiii",
-      "image_blog": "1694511870060-B3B3.png",
-      "id": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "username": "salwa",
+      "password": "salwa",
+      "email": "salwa@gmail.com",
+      "avatar": "1695150854348-DSC_6875-2 (2).jpg",
+      "id": 1
+    },
+    {
+      "username": "kyra",
+      "password": "kyra",
+      "email": "kyra@gmail.com",
+      "avatar": "1695152913609-302-3022079_blankface-meme-computer.png",
+      "id": 2
+    }
+  ]
 }

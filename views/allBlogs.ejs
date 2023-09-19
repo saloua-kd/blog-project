@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/allblogsstyle.css">
+    <script src="/js/dashscript.js" defer></script>
+    <title>All Blogs</title>
 </head>
+
 <body>
     <h1>All Blogs</h1>
-    <% blogs.forEach(b => { %>
-        <div id="<%= b.id %>">
-            <h3>blog title: <%= b.title_blog %> </h3>
-            <h3>blog description: <%= b.description_blog %> </h3>
-            <h3>blog author: <%= b.author_blog %> </h3>
-            <img width="300px" height="auto" src="/uploads/<%=b.image_blog%>" alt="hh">
-        </div>
-    <% }) %>
-
-
+    <div class="blog-cards-container">
+        <% blogs.forEach(b=> { %>
+            <div class="blog-card" id="<%= b.id %>">
+                <img src="/uploads/<%= b.image_blog %>" alt="<%= b.title_blog %>">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">blog title: <%= b.title_blog %>
+                    </h3>
+                    <p class="blog-card-description">blog description: <%= b.description_blog %>
+                    </p>
+                    <p class="blog-card-author">blog author: <%= b.author_blog %>
+                    </p>
+                    <div class="button">
+                        <a href="/edit/<%= b.id %>" class="edit">edit</a>
+                        <a href="/delete/<%= b.id %>" class="delete" data-id="<%= b.id %>">delete</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
 </body>
+
 </html>
