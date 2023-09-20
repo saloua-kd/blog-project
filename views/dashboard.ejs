@@ -58,20 +58,7 @@
                 <button type="submit" id="add-blog-button">Add Blog</button>
             </form>
 
-            <% if (newBlog) { %>      
-                <div class="blog-card" id="<%= newBlog.id %>">
-                    <img src="/uploads/<%= newBlog.image_blog %>" alt="<%= newBlog.title_blog %>">
-                    <div class="blog-card-content">
-                        <h3 class="blog-card-title">blog title: <%= newBlog.title_blog %></h3>
-                        <p class="blog-card-description">blog description: <%= newBlog.description_blog %></p>
-                        <p class="blog-card-author">blog author: <%= newBlog.author_blog %></p>
-                        <div class="button">
-                            <a href="" class="edit">edit</a>
-                            <a href="" class="delete" data-id="<%= newBlog.id %>">delete</a>
-                        </div>
-                    </div>
-                </div>
-                <% } %>
+            
 
 
     <div class="blog-cards-container">

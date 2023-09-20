@@ -53,9 +53,8 @@ const logger = (req,res,next) => {
   // Verify the JWT token from the cookie
   const token = req.cookies.token;
 
-
   if (!token) {
-    return res.redirect('/register');
+    return res.redirect('/login');
   }
 
 // Inside the logger middleware
@@ -66,11 +65,23 @@ jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
   }
 
   // Set the user object in the request
-  req.user = {
-    email: decoded.email,
-    avatar: decoded.avatar,
-    id: decoded.user_id,
-  };
+  // req.user = {
+  //   email: decoded.email,
+  //   avatar: decoded.avatar,
+  //   id: decoded.user_id,
+  // };
+
+  req.user = decoded.user; // Use decoded.user to access the user information
+
+  
+  console.log('Generated JWT token:', token);
+// Inside the logger middleware
+console.log('Token:', token);
+console.log('Decoded User:', req.user);
+
+// In the /dashboard route
+console.log('User in /dashboard:', req.user);
+
 
   // If the token is valid, continue with the request
   next();
@@ -120,10 +131,12 @@ app.get('/login', (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+    const { email, password } = req.body;
 
     const users = await axios.get('http://localhost:3000/users')
     const user = await users.data.find((u) => u.email === email && u.password === password);
+
+    user.uniqueID = Date.now()
 
 
   // const user = await getUser(email,password)
@@ -156,10 +169,17 @@ app.get('/logout', (req, res) => {
 
 app.post ('/edit/:id', updateBlog)
 
-app.post('/createblog',upload.single('image'), createBlog)
+app.post('/createblog',logger,upload.single('image'), createBlog)
 
 
-app.get('/allBlogs',getBlogs)
+app.get('/allBlogs',logger,async(req,res)=>{
+
+  const fetchBlog = await axios.get('http://localhost:3000/blogs')
+  const blogs = await fetchBlog.data
+  res.render('allBlogs',{blogs});
+  res.end()
+
+})
 
   
 app.delete('/delete/:id', deleteBlog)
@@ -178,3 +198,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
 
+  console.log(Date.now()  )

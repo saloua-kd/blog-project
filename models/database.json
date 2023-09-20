@@ -1,25 +1,36 @@
 {
   "blogs": [
     {
-      "title_blog": "this is a blog",
-      "description_blog": "description",
-      "author_blog": "author",
-      "image_blog": "1695152913609-302-3022079_blankface-meme-computer.png",
+      "title_blog": "dslan",
+      "description_blog": "hjkjh",
+      "author_blog": "kjh",
+      "image_blog": "1695200909686-linkedin cover.jpg",
+      "user_id": 1,
       "id": 1
     },
     {
-      "title_blog": "another blog",
-      "description_blog": "description",
-      "author_blog": "author",
-      "image_blog": "1695154730877-HKimage.png",
+      "title_blog": "fdshj",
+      "description_blog": "kjhk",
+      "author_blog": "hk",
+      "image_blog": "1695200919747-HKimage.png",
+      "user_id": 1,
       "id": 2
     },
     {
-      "title_blog": "another blog",
-      "description_blog": "description",
-      "author_blog": "author",
-      "image_blog": "1695154759861-linkedin cover.jpg",
+      "title_blog": "fsjahkj",
+      "description_blog": "jhk",
+      "author_blog": "hk",
+      "image_blog": "1695200930423-0_ZjYSm_q36J4KChdn.jpg",
+      "user_id": 1,
       "id": 3
+    },
+    {
+      "title_blog": "fdlashjk",
+      "description_blog": "jhkjhk",
+      "author_blog": "kjh",
+      "image_blog": "1695201226788-HKimage.png",
+      "user_id": 5,
+      "id": 4
     }
   ],
   "users": [
@@ -36,6 +47,27 @@
       "email": "kyra@gmail.com",
       "avatar": "1695152913609-302-3022079_blankface-meme-computer.png",
       "id": 2
+    },
+    {
+      "username": "bo3rf",
+      "password": "bo3rf",
+      "email": "bo3rf@gmail.com",
+      "image": "1695159010574-302-3022079_blankface-meme-computer.png",
+      "id": 3
+    },
+    {
+      "username": "salwa",
+      "password": "fdsfas@gnail.com",
+      "email": "fdsfas@gnail.com",
+      "image": "1695199102199-0_ZjYSm_q36J4KChdn.jpg",
+      "id": 4
+    },
+    {
+      "username": "aymn",
+      "password": "jhkjh@l.com",
+      "email": "jhkjh@l.com",
+      "image": "1695201214241-0_ZjYSm_q36J4KChdn.jpg",
+      "id": 5
     }
   ]
 }

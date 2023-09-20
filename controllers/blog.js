@@ -3,6 +3,7 @@ const axios = require("axios");
 
 exports.createBlog = async (req, res) => {
   const { title, description, author } = req.body;
+  console.log(req.user)
   
   // Check if a file was uploaded
   if (!req.file) {
@@ -26,7 +27,7 @@ exports.createBlog = async (req, res) => {
 
   try {
     await axios.post('http://localhost:3000/blogs', newBlog);
-    res.redirect('/dashboard?newBlog=true');
+    res.redirect('/dashboard');
   } catch (err) {
     res.status(500).send('Internal server error');
   }
@@ -34,22 +35,23 @@ exports.createBlog = async (req, res) => {
 
 
 exports.getBlogs = async (req, res) => {
+  console.log('user',req.user)
   const user = req.user; // Get the user info from the request
-
-   // Check if newBlog is in the query parameters
-    const newBlog = req.query.newBlog === 'true';
 
   // Fetch blogs associated with the logged-in user
   try {
-    const fetchBlog = await axios.get(`http://localhost:3000/blogs?user_id=${user.id}`);
-    const blogs = fetchBlog.data;
-
+    const api =await axios.get('http://localhost:3000/blogs')
+  const userBlogs = await api.data
+  const blogs = userBlogs.filter(b => b.user_id == req.user.id)
+  console.log(blogs)
+    
+    
     console.log('email:', user.email);
     console.log('username:', user.username);
 
     
     // Render the dashboard with blogs
-    res.render('dashboard', { blogs, email: user.email, username: user.username, avatar: user.avatar, newBlog });
+    res.render('dashboard', { blogs, email: user.email, username: user.username, avatar: user.avatar });
 
   } catch (error) {
     console.error('Error fetching blogs:', error);
